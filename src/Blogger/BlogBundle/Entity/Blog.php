@@ -126,6 +126,7 @@ class Blog
     public function getAuthor()
     {
         return $this->author;
+        
     }
 
     /**
