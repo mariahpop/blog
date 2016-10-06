@@ -17,11 +17,16 @@
             <file>file:/C:/wamp/www/symblog.dev/web/css/screen.css</file>
             <file>file:/C:/wamp/www/symblog.dev/app/config/parameters.yml</file>
             <file>file:/C:/wamp/www/symblog.dev/src/Blogger/BlogBundle/Resources/config/config.yml</file>
+            <file>file:/C:/wamp/www/symblog.dev/src/Blogger/BlogBundle/Entity/Repository/CommentRepository.php</file>
+            <file>file:/C:/wamp/www/symblog.dev/src/Blogger/BlogBundle/Entity/Repository/BlogRepository.php</file>
             <file>file:/C:/wamp/www/symblog.dev/src/Blogger/BlogBundle/Resources/views/Page/about.html.twig</file>
-            <file>file:/C:/wamp/www/symblog.dev/src/Blogger/BlogBundle/Entity/Blog.php</file>
             <file>file:/C:/wamp/www/symblog.dev/composer.json</file>
+            <file>file:/C:/wamp/www/symblog.dev/src/Blogger/BlogBundle/Entity/Comment.php</file>
+            <file>file:/C:/wamp/www/symblog.dev/src/Blogger/BlogBundle/Entity/Blog.php</file>
             <file>file:/C:/wamp/www/symblog.dev/src/Blogger/BlogBundle/Entity/Enquiry.php</file>
             <file>file:/C:/wamp/www/symblog.dev/src/Blogger/BlogBundle/Resources/views/Blog/show.html.twig</file>
+            <file>file:/C:/wamp/www/symblog.dev/src/Blogger/BlogBundle/DataFixtures/ORM/CommentFixtures.php</file>
+            <file>file:/C:/wamp/www/symblog.dev/src/Blogger/BlogBundle/Resources/views/Comment/index.html.twig</file>
         </group>
     </open-files>
 </project-private>
