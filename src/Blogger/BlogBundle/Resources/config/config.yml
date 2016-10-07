@@ -3,3 +3,4 @@
 parameters:
     # Blogger contact email address
     blogger_blog.emails.contact_email: maria.pop@wayfare.ro
+    blogger_blog.comments.latest_comment_limit: 10

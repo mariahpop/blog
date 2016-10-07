@@ -39,11 +39,15 @@ class CommentController extends Controller
         $comment->setBlog($blog);
      
         $form    = $this->createForm(CommentType::class, $comment);
-        $form->bindRequest($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             // TODO: Persist the comment entity
-
+             $em = $this->getDoctrine()
+                       ->getEntityManager();
+            $em->persist($comment);
+            $em->flush();
+            
             return $this->redirect($this->generateUrl('BloggerBlogBundle_blog_show', array(
                 'id' => $comment->getBlog()->getId())) .
                 '#comment-' . $comment->getId()
@@ -59,7 +63,7 @@ class CommentController extends Controller
     protected function getBlog($blog_id)
     {
         $em = $this->getDoctrine()
-                    ->getEntityManager();
+                    ->getManager();
 
         $blog = $em->getRepository('BloggerBlogBundle:Blog')->find($blog_id);
 
