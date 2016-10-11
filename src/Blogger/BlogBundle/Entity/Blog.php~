@@ -24,6 +24,12 @@ class Blog
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
+
 
     /**
      * @ORM\Column(type="string")
@@ -271,5 +277,20 @@ class Blog
     public function setUpdatedValue()
     {
        $this->setUpdated(new \DateTime());
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \Blogger\BlogBundle\Entity\Comment $comment
+     */
+    public function removeComment(\Blogger\BlogBundle\Entity\Comment $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+    
+    public function __toString()
+    {
+        return $this->getTitle();
     }
 }
