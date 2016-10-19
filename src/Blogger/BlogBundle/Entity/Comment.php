@@ -45,6 +45,11 @@ class Comment
      * @ORM\JoinColumn(name="blog_id", referencedColumnName="id")
      */
     protected $blog;
+    
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $parent;
 
     /**
      * @ORM\Column(type="datetime")
@@ -224,6 +229,30 @@ class Comment
     public function getBlog()
     {
         return $this->blog;
+    }
+    
+    /**
+     * Set parent
+     *
+     * @param integer $parent
+     *
+     * @return Comment
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return integer
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
     
     public static function loadValidatorMetadata(ClassMetadata $metadata)

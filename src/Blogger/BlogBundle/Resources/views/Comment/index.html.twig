@@ -1,10 +1,33 @@
-{# empty Twig template #}
-{% for comment in comments %}
+{% for comment in comments if (comment.parent == 0) %}
     <article class="comment {{ cycle(['odd', 'even'], loop.index0) }}" id="comment-{{ comment.id }}">
         <header>
             <p><span class="highlight">{{ comment.user }}</span> commented <time datetime="{{ comment.created|date('c') }}">{{ comment.created|created_ago }}</time></p>
         </header>
         <p>{{ comment.comment }}</p>
+        <a href="#" id="reply_button_{{comment.id}}">Reply </a>
+        <br>
+        <div id="add_reply_{{comment.id}}" name="add_reply" hidden="true">
+        <h3>Add Reply</h3>
+            {{ render(controller("BloggerBlogBundle:Comment:new", {'blog_id':blog.id, 'comment_id':comment.id })) }}
+        </div>
+        
+        {% for childcomment in comments if (childcomment.parent == comment.id) %}
+            <div class="reply">
+                <header>
+                <p><span class="highlight">{{ childcomment.user }}</span> commented <time datetime="{{ childcomment.created|date('c') }}">{{ childcomment.created|created_ago }}</time></p>
+                </header>
+                <p >{{ childcomment.comment }}</p>
+                <a href="#" id="reply_button_{{childcomment.id}}">Reply </a>
+                <br>
+                <div id="add_reply_{{childcomment.id}}" name="add_reply" hidden="true">
+                <h3>Add Reply</h3>
+                    {{ render(controller("BloggerBlogBundle:Comment:new", {'blog_id':blog.id, 'comment_id':childcomment.id })) }}
+                </div>
+            </div>
+           
+        {% endfor %}
+        
+        
     </article>
 {% else %}
     <p>There are no comments for this post. Be the first to comment...</p>

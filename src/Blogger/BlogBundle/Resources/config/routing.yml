@@ -24,7 +24,7 @@ BloggerBlogBundle_blog_show:
         id: \d+
         
 BloggerBlogBundle_comment_create:
-    path:  /comment/{blog_id}
+    path:  /comment/{blog_id}/{comment_id}
     defaults: { _controller: BloggerBlogBundle:Comment:create }
     requirements:
         _method:  POST

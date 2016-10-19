@@ -17,12 +17,13 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CommentController extends Controller
 {
-    public function newAction($blog_id)
+    public function newAction($blog_id, $comment_id = 0)
     {
         $blog = $this->getBlog($blog_id);
 
         $comment = new Comment();
         $comment->setBlog($blog);
+        $comment->setParent($comment_id);
         $form   = $this->createForm(CommentType::class, $comment);
 
         return $this->render('BloggerBlogBundle:Comment:form.html.twig', array(
@@ -31,12 +32,13 @@ class CommentController extends Controller
         ));
     }
 
-    public function createAction($blog_id, Request $request)
+    public function createAction( Request $request, $blog_id, $comment_id = 0)
     {
         $blog = $this->getBlog($blog_id);
 
         $comment  = new Comment();
         $comment->setBlog($blog);
+        $comment->setParent($comment_id);
      
         $form    = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
